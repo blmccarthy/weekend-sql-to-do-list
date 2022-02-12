@@ -34,16 +34,16 @@ Use CSS styling to move the aesthetic of the page beyond the vanilla HTML look:
 [x] 1. Create Folder/File Structure
 [x] 2. Install All Apps
     * [x] npm, express, body-parser, pg
-[] 3. Create DOM Wireframe
+[x] 3. Create DOM wireframe
     * Inputs, buttons, etc
 
-[] 4. GET 
+[x] 4. GET 
 * gets all checklist items from db
-    [] a. Client AJAX
+    [x] a. Client AJAX
         -- data-id tr
-    [] b. Array data Testing
-        * [] Hardcode Array in Router
-        * [] Hardcode in SQL Table
+    [x] b. Array data Testing
+        * [x] Hardcode Array in Router
+        * [x] Hardcode in SQL Table
         -- Create SQL Table
 
 [] 5. POST

@@ -34,11 +34,18 @@ function getToDoList(){
 
 function renderToDom(list){
     console.log('in renderToDom');
+    // Empty to-do list
     $('#tbl-todo-list').empty();
     for (let li of list){
+        // Enable checkmark if complete
+        let isChecked = '';
+        if (li.completed === true){
+            isChecked = 'checked';
+        }
+        // Append to-do list
         $('#tbl-todo-list').append(`
-        <tr>
-            <td></td>
+        <tr data-id="${li.id}">
+            <td><input type="checkbox" ${checked}></td>
             <td>${li.task_desc}</td>
             <td><button>Delete</button></td>
         <tr>
