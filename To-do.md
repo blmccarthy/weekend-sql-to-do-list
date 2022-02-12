@@ -33,7 +33,7 @@ Use CSS styling to move the aesthetic of the page beyond the vanilla HTML look:
 
 [x] 1. Create Folder/File Structure
 [x] 2. Install All Apps
-    * npm, express, body-parser, pg
+    * [x] npm, express, body-parser, pg
 [] 3. Create DOM Wireframe
     * Inputs, buttons, etc
 
