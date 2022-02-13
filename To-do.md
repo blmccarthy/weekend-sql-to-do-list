@@ -21,49 +21,50 @@
 
 
 
+## Ordered STEPS: 
+
+[x] 1. Create Folder/File Structure
+[x] 2. Install All Apps
+    * [x] npm, express, body-parser, pg
+[x] 3. Create DOM wireframe
+    * Inputs, buttons, etc
+
+[x] 4. GET 
+* gets all checklist items from db
+    [x] a. Client AJAX
+        -- data-id tr
+    [x] b. Array data Testing
+        * [x] Hardcode Array in Router
+        * [x] Hardcode in SQL Table
+        -- Create SQL Table
+
+[x] 5. POST
+* add new checklist item
+    [x] a. Client AJAX 
+    [x] b. Server Router SQL
+    [x] c. client re-renders list with GET
+
+[x] 6. DELETE
+* deletes task from task list
+    [x] a. Client AJAX
+    [x] b. send data-id to server to delete
+    [x] c. client re-renders list with GET
+
+[x] 7. PUT
+* mark task as complete 
+    [x] a. Client AJAX
+    [x] b. send data-id to server
+        -- UPDATE SQL query text
+    [x] c. client re-renders list with GET
+
 ### Styling
 
-Use CSS styling to move the aesthetic of the page beyond the vanilla HTML look:
+[] 8. Use CSS styling to move the aesthetic of the page beyond the vanilla HTML look:
   - [] background color of the page
   - [] font family and size
   - [] text color & or background color of tasks *to show whether or not they have been completed*
 
 
-  ## STEPS: 
-
-[x] 1. Create Folder/File Structure
-[x] 2. Install All Apps
-    * [x] npm, express, body-parser, pg
-[] 3. Create DOM Wireframe
-    * Inputs, buttons, etc
-
-[] 4. GET 
-* gets all checklist items from db
-    [] a. Client AJAX
-        -- data-id tr
-    [] b. Array data Testing
-        * [] Hardcode Array in Router
-        * [] Hardcode in SQL Table
-        -- Create SQL Table
-
-[] 5. POST
-* add new checklist item
-    [] a. Client AJAX 
-    [] b. Server Router SQL
-    [] c. client re-renders list with GET
-
-[] 6. DELETE
-* deletes task from task list
-    [] a. Client AJAX
-    [] b. send data-id to server to delete
-    [] c. client re-renders list with GET
-
-[] 7. PUT
-* mark task as complete 
-    [] a. Client AJAX
-    [] b. send data-id to server
-        -- UPDATE SQL query text
-    [] c. client re-renders list with GET
 
 
     
