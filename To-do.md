@@ -46,11 +46,11 @@ Use CSS styling to move the aesthetic of the page beyond the vanilla HTML look:
         * [x] Hardcode in SQL Table
         -- Create SQL Table
 
-[] 5. POST
+[x] 5. POST
 * add new checklist item
-    [] a. Client AJAX 
-    [] b. Server Router SQL
-    [] c. client re-renders list with GET
+    [x] a. Client AJAX 
+    [x] b. Server Router SQL
+    [x] c. client re-renders list with GET
 
 [] 6. DELETE
 * deletes task from task list
