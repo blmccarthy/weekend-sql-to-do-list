@@ -21,15 +21,7 @@
 
 
 
-### Styling
-
-Use CSS styling to move the aesthetic of the page beyond the vanilla HTML look:
-  - [] background color of the page
-  - [] font family and size
-  - [] text color & or background color of tasks *to show whether or not they have been completed*
-
-
-  ## STEPS: 
+## Ordered STEPS: 
 
 [x] 1. Create Folder/File Structure
 [x] 2. Install All Apps
@@ -52,18 +44,27 @@ Use CSS styling to move the aesthetic of the page beyond the vanilla HTML look:
     [x] b. Server Router SQL
     [x] c. client re-renders list with GET
 
-[] 6. DELETE
+[x] 6. DELETE
 * deletes task from task list
-    [] a. Client AJAX
-    [] b. send data-id to server to delete
-    [] c. client re-renders list with GET
+    [x] a. Client AJAX
+    [x] b. send data-id to server to delete
+    [x] c. client re-renders list with GET
 
-[] 7. PUT
+[x] 7. PUT
 * mark task as complete 
-    [] a. Client AJAX
-    [] b. send data-id to server
+    [x] a. Client AJAX
+    [x] b. send data-id to server
         -- UPDATE SQL query text
-    [] c. client re-renders list with GET
+    [x] c. client re-renders list with GET
+
+### Styling
+
+[] 8. Use CSS styling to move the aesthetic of the page beyond the vanilla HTML look:
+  - [] background color of the page
+  - [] font family and size
+  - [] text color & or background color of tasks *to show whether or not they have been completed*
+
+
 
 
     
