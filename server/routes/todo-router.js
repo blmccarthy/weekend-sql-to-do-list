@@ -10,9 +10,12 @@ const pool = require('../modules/pool');
 // GET ---------------------------------------------------------
 
 todoRouter.get('/', (req, res) => {
-    let queryText = 'SELECT * FROM "todo" ORDER BY "id";';
+    console.log('in get router');
+    // Selects ALL, filters completed to the bottom
+    let queryText = 'SELECT * FROM "todo" ORDER BY "completed", "id" DESC;';
     pool.query(queryText)
     .then(result => {
+        console.log('in get .then'); 
         res.send(result.rows);
     }).catch( err => {
         console.log('error getting todo', err);

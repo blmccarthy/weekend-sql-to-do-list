@@ -5,8 +5,8 @@ $(readyNow);
 function readyNow(){
     getToDoList();
     $('#btn-submit').on('click', submitTask);
-    $('#tbl-todo-list').on('click', '.btn-delete', deleteTask)
-    $('#tbl-todo-list').on('click', '.checkbox', updateStatus)
+    $('#tbl-todo-list').on('click', '#btn-delete', deleteTask)
+    $('#tbl-todo-list').on('click', '#checkbox', updateStatus)
 }
 
 // GLOBAL VARS -------------------------------------------------
@@ -54,7 +54,7 @@ function submitTask(){
 
 function updateStatus(){
     let id = $(this).closest('tr').data().id
-    let isComplete = $(this).closest('.checkbox').data().checked
+    let isComplete = $(this).closest('#checkbox').data().checked
     console.log('in updateStatus', id, isComplete);
 
     $.ajax({
@@ -99,20 +99,22 @@ function deleteTask(){
 function renderToDom(tasklist){
     console.log('in renderToDom');
     // Empty to-do list
-    $('#tbl-todo-list').empty();
+    $('#tbody-todo-list').empty();
     for (let task of tasklist){
-        // Enable checkmark if complete
+        // Enable checkmark & strikethrough class if complete
         let isChecked = '';
+        let addClass = '';
         if (task.completed === true){
             isChecked = 'checked';
+            addClass = 'class="completed"';
         }
         // Append to-do list
-        $('#tbl-todo-list').append(`
-        <tr data-id="${task.id}">
-            <td><input type="checkbox" class="checkbox" data-checked="${task.completed}" ${isChecked}></td>
+        $('#tbody-todo-list').append(`
+        <tr ${addClass} data-id="${task.id}">
+            <td><input type="checkbox" class="form-check-input" id="checkbox" data-checked="${task.completed}" ${isChecked}></td>
             <td>${task.task_desc}</td>
-            <td><button class="btn-delete">Delete</button></td>
-        <tr>
+            <td><button class="btn btn-danger" id="btn-delete">Delete</button></td>
+        </tr>
         `);
     }
 }

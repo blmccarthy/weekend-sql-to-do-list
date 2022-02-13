@@ -6,6 +6,6 @@ CREATE TABLE todo (
 
 INSERT INTO todo (task_desc, completed)
 VALUES ('Complete to do list for weekend assignment', FALSE),
-('Another test task description', FALSE),
-('I should probably make lunch soon', FALSE),
-('Example completed task', TRUE);
+('Make Dinner', FALSE),
+('Run  to Target to get more Cat Food', FALSE),
+('Example of Completed Task', TRUE);

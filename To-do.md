@@ -60,11 +60,34 @@
 ### Styling
 
 [] 8. Use CSS styling to move the aesthetic of the page beyond the vanilla HTML look:
-  - [] background color of the page
-  - [] font family and size
-  - [] text color & or background color of tasks *to show whether or not they have been completed*
+  - [x] background color of the page
+  - [x] font family and size
+  - [x] text color & or background color of tasks *to show whether or not they have been completed*
 
 
+## Stretch Goals
+
+For each of your stretch goals, you will be practicing git branching. Please refer to the branching notes for a reminder on commands. Each branch will be merged into master using `--no-ff`. This will allow us to see that you branched your feature when you turn in your code.
+
+- `feature-styling-bootstrap` 
+
+    - [ ]  Add Bootstrap to the front end and style it up!
+      -  [x] Buttons -- make the creation buttons and completion buttons green and the delete red.
+      -  [x] Inputs -- make your text inputs styled in the bootstrap way
+      -  [] Responsive -- make your app responsive to different screen sizes -- check out the [Layout](https://getbootstrap.com/docs/4.1/layout/overview/) section
+
+- `feature-confirm-delete`
+
+    - [ ]  In whatever fashion you would like, create an 'are you sure: yes / no' option when deleting a task.
+        - Some styled options are [Bootstrap Modal](https://getbootstrap.com/docs/4.0/components/modal/) or [Sweet Alerts](https://sweetalert.js.org/guides/): Use the CDN option.
+
+- `feature-ordering-task-query` 
+
+    - [ ]  Research [Query Params](https://expressjs.com/en/api.html#req.query) to have the request reverse the order of the returned todos. 
+    
+- `feature-time-completed` 
+
+    - [ ]  Add the ability to record when a task was completed. Show the completed date on the frontend in a pretty format.
 
 
     
