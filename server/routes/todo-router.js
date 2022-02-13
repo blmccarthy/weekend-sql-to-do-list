@@ -42,6 +42,20 @@ todoRouter.post('/', (req, res) => {
 
 // DELETE ------------------------------------------------------
 
+todoRouter.delete('/:id', (req, res) => {
+    console.log('in delete');
+    let reqID = req.params.id;
+    let queryText = `DELETE FROM "todo" WHERE "id" = $1;`;
+    pool.query(queryText, [reqID])
+    .then((result) => {
+        console.log('in delete.then');
+        res.sendStatus(200);
+    }).catch((err) => {
+        console.log('in delete.catch', err);
+        res.sendStatus(500);
+    })
+})
+
 // OTHER FUNCTIONS ---------------------------------------------
 
 // EXPORTS -----------------------------------------------------
