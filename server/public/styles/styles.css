@@ -1,7 +1,63 @@
+/* FONTS ---------------------------------------------- */
+
+@font-face {
+    font-family: Mungil-Regular;
+    src: url(/fonts/Mungil-Regular.ttf);
+  }
+
+/* ELEMENTS ------------------------------------------- */
+
 * {
     font-family: Helvetica, Arial, sans-serif;
 }
 
+body {
+    background-color: rgb(226, 226, 171);
+}
+
+h1 {
+    font-family: "Mungil-Regular";
+    font-size: 60px;
+    text-align: center;
+}
+
+td, th {
+    padding: 7px;
+}
+
+td {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+/* CLASS ----------------------------------------------- */
+
+.completed td:nth-child(2) {
+    font-style: italic;
+    text-decoration: line-through;
+}
+
+/* ID -------------------------------------------------- */
+
 #entry-fields {
     padding-bottom: 20px;
+    text-align: center;
+}
+
+#inp-task {
+    width: 320px;
+    padding: 5px;
+    margin: auto;
+    display: inline-block
+}
+
+#tbl-todo-list {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    min-width: 400px;
+}
+
+#tbody-todo-list tr:nth-child(odd) {
+    background-color: rgb(213, 213, 145);
 }
