@@ -23,6 +23,21 @@ todoRouter.get('/', (req, res) => {
 
 // POST --------------------------------------------------------
 
+todoRouter.post('/', (req, res) => {
+    let task = req.body.task_desc;
+    console.log('in post', task);
+    let queryText = `INSERT INTO todo (task_desc, completed) VALUES ($1, FALSE);`;
+    pool.query(queryText, [task])
+    .then((result) => {
+        console.log('in POST .then');
+        res.sendStatus(200);
+    }).catch((err) => {
+        console.log('in POST .catch:', err);
+        res.sendStatus(500)
+    });
+
+})
+
 // PUT ---------------------------------------------------------
 
 // DELETE ------------------------------------------------------

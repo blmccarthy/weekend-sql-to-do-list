@@ -4,6 +4,8 @@ $(readyNow);
 
 function readyNow(){
     getToDoList();
+    $('#btn-submit').on('click', submitTask);
+    $('#tbl-todo-list').on('click', '.btn-delete', deleteTask)
 }
 
 // GLOBAL VARS -------------------------------------------------
@@ -26,28 +28,49 @@ function getToDoList(){
 
 // POST --------------------------------------------------------
 
+function submitTask(){
+    console.log('in submitTask');
+    
+    $.ajax({
+        type: 'POST',
+        url: '/todo',
+        data: {
+            task_desc: $('#inp-task').val(),
+        }
+    }).then(function(res){
+        console.log('submitTask .then');
+        $('#inp-task').val('');
+        // Re-render to-do list
+        getToDoList();
+    }).catch(function(err){
+        console.log('submitTask .catch', err);
+        alert('Error submitting task to server:', err)
+    })
+    
+}
+
 // PUT ---------------------------------------------------------
 
 // DELETE ------------------------------------------------------
 
 // OTHER FUNCTIONS ---------------------------------------------
 
-function renderToDom(list){
+function renderToDom(tasklist){
     console.log('in renderToDom');
     // Empty to-do list
     $('#tbl-todo-list').empty();
-    for (let li of list){
+    for (let task of tasklist){
         // Enable checkmark if complete
         let isChecked = '';
-        if (li.completed === true){
+        if (task.completed === true){
             isChecked = 'checked';
         }
         // Append to-do list
         $('#tbl-todo-list').append(`
-        <tr data-id="${li.id}">
-            <td><input type="checkbox" ${checked}></td>
-            <td>${li.task_desc}</td>
-            <td><button>Delete</button></td>
+        <tr data-id="${task.id}">
+            <td><input type="checkbox" ${isChecked}></td>
+            <td>${task.task_desc}</td>
+            <td><button class="btn-delete">Delete</button></td>
         <tr>
         `);
     }
