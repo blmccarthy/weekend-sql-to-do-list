@@ -10,10 +10,9 @@ const pool = require('../modules/pool');
 // GET ---------------------------------------------------------
 
 todoRouter.get('/', (req, res) => {
-    let queryText = 'SELECT * FROM "todo";';
+    let queryText = 'SELECT * FROM "todo" ORDER BY "id";';
     pool.query(queryText)
     .then(result => {
-        console.log('result.rows:', result.rows);
         res.send(result.rows);
     }).catch( err => {
         console.log('error getting todo', err);
@@ -39,6 +38,26 @@ todoRouter.post('/', (req, res) => {
 })
 
 // PUT ---------------------------------------------------------
+
+todoRouter.put('/:id', (req, res) => {
+    let isComplete = req.body.completed;
+    let id = req.params.id;
+    // Toggles isComplete Status upon clicking checkmark
+    if (isComplete === "true"){
+        isComplete = false;
+    }
+    if (isComplete === "false"){
+        isComplete = true;
+    }
+    let queryText = `UPDATE "todo" SET "completed" = $1 WHERE "id" = $2;`;
+    pool.query(queryText, [isComplete, id])
+    .then((result) => {
+        res.sendStatus(200);
+    }).catch((result) => {
+        console.log('todoRouter.put error:', result);
+        res.sendStatus(500);
+    });
+});
 
 // DELETE ------------------------------------------------------
 
