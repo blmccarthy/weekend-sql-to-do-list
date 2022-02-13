@@ -6,6 +6,7 @@ function readyNow(){
     getToDoList();
     $('#btn-submit').on('click', submitTask);
     $('#tbl-todo-list').on('click', '.btn-delete', deleteTask)
+    $('#tbl-todo-list').on('click', '.checkbox', updateStatus)
 }
 
 // GLOBAL VARS -------------------------------------------------
@@ -51,7 +52,47 @@ function submitTask(){
 
 // PUT ---------------------------------------------------------
 
+function updateStatus(){
+    let id = $(this).closest('tr').data().id
+    let isComplete = $(this).closest('.checkbox').data().checked
+    console.log('in updateStatus', id, isComplete);
+
+    $.ajax({
+        type: 'PUT',
+        url: `/todo/${id}`,
+        data: {
+            completed: isComplete
+        }
+    }).then(function(res){
+        console.log('in updateStatus .then');
+        getToDoList();
+    }).catch(function(res){
+        console.log('in updateStatus .catch', res);
+        alert('Error updating task')
+    })
+    
+}
+
 // DELETE ------------------------------------------------------
+
+function deleteTask(){
+    console.log('in deleteTask');
+    let taskID = $(this).closest('tr').data().id;
+    console.log('taskID:', taskID);
+    
+    $.ajax({
+        type: `DELETE`,
+        url: `/todo/${taskID}`
+    })
+    .then((result) => {
+        console.log('in deleteTask .then');
+        // Re-render to-do list
+        getToDoList();
+    }).catch((err) => {
+        console.log('in deleteTask .catch', err);
+        alert('Error: Unable to delete task at this time', err)
+    });
+}
 
 // OTHER FUNCTIONS ---------------------------------------------
 
@@ -68,7 +109,7 @@ function renderToDom(tasklist){
         // Append to-do list
         $('#tbl-todo-list').append(`
         <tr data-id="${task.id}">
-            <td><input type="checkbox" ${isChecked}></td>
+            <td><input type="checkbox" class="checkbox" data-checked="${task.completed}" ${isChecked}></td>
             <td>${task.task_desc}</td>
             <td><button class="btn-delete">Delete</button></td>
         <tr>
