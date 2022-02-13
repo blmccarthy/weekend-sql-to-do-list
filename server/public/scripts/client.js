@@ -53,6 +53,25 @@ function submitTask(){
 
 // DELETE ------------------------------------------------------
 
+function deleteTask(){
+    console.log('in deleteTask');
+    let taskID = $(this).closest('tr').data().id;
+    console.log('taskID:', taskID);
+    
+    $.ajax({
+        type: `DELETE`,
+        url: `/todo/${taskID}`
+    })
+    .then((result) => {
+        console.log('in deleteTask .then');
+        // Re-render to-do list
+        getToDoList();
+    }).catch((err) => {
+        console.log('in deleteTask .catch', err);
+        alert('Error: Unable to delete task at this time', err)
+    });
+}
+
 // OTHER FUNCTIONS ---------------------------------------------
 
 function renderToDom(tasklist){
